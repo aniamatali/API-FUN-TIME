@@ -153,6 +153,7 @@
         <option value="night">Night mode</option>
         <option value="retro" selected="selected">Retro</option>
         <option value="hiding">Hide features</option>
+        <option value="custom">Custom</option>
       </select>
     </div>
     <div id="map"></div>
@@ -473,6 +474,87 @@
             featureType: 'transit',
             elementType: 'labels.icon',
             stylers: [{visibility: 'off'}]
+          }
+        ],
+
+        custom: [
+          {elementType: 'geometry', stylers: [{color: '#491c63'}]},
+          {elementType: 'labels.text.stroke', stylers: [{color: '#000000'}]},
+          {elementType: 'labels.text.fill', stylers: [{color: '#fff'}]},
+          {
+            featureType: 'administrative.locality',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry',
+            stylers: [{color: '#945d9b'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{color: '#1132a3'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#000000'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#95d7d8'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#000000'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'geometry',
+            stylers: [{color: '#b87cd6'}]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{color: '#3ea59b'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ffffff'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [{color: '#000000'}]
           }
         ]
       };
