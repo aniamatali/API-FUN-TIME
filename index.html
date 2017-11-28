@@ -1,3 +1,5 @@
+<!doctype html>
+
 <html>
 <head>
   <script src="http://code.jquery.com/jquery-3.2.1.min.js"
@@ -6,8 +8,36 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="build/css/vendor.css" type="text/css"> -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
+
   <!-- <script src="build/js/vendor.min.js"></script> -->
   <script type="text/javascript" src="build/js/app.js"></script>
+  <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+     #map {
+       height: 400px;
+       width: 100%;
+      }
+      .map-control {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        font-family: 'Roboto','sans-serif';
+        margin: 10px;
+        /* Hide the control initially, to prevent it from appearing
+           before the map loads. */
+        display: none;
+      }
+      /* Display the control once it is inside the map. */
+      #map .map-control { display: block; }
+
+      .selector-control {
+        font-size: 14px;
+        line-height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+   </style>
   <title>API Practice</title>
 </head>
 <body>
@@ -116,6 +146,24 @@
       </div>
     </div>
 
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+
+    <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjGSZ4UR09KbLShblkaU6PJAbMhpiOp2A&callback=initMap">
+   </script>
   </div>
 </body>
 </html>
