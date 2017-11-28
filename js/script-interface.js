@@ -107,7 +107,7 @@ $(document).ready(function() {
     $('#gifSearch').val("");
 
     let request = new XMLHttpRequest();
-    let url = `http://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${apiKey2}&limit=200`;
+    let url = `http://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${apiKey2}&limit=20&rating=R`;
 
     request.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
@@ -120,7 +120,6 @@ $(document).ready(function() {
     request.send();
 
     const getElements = function(response) {
-      console.log(response.data);
       response.data.forEach(function(image) {
         $('.gif1').prepend("<div class='col-md-4'><img class='crop' src="+image.images.downsized.url+"></div>")
       })
@@ -128,3 +127,31 @@ $(document).ready(function() {
     };
     });
   });
+
+  $(document).ready(function() {
+    $('#getRand').click(function() {
+      let gifSearch = $('#gifSearch').val();
+      $('#gifSearch').val("");
+
+      let request = new XMLHttpRequest();
+      let url = `http://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${apiKey2}&limit=20&rating=R`;
+
+      request.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          let response = JSON.parse(this.responseText);
+          getElements(response);
+        }
+      };
+
+      request.open("GET", url, true);
+      request.send();
+
+      const getElements = function(response) {
+        response[Math.floor(Math.random()*response.length)];
+        let randomResponse = response.data[Math.floor(Math.random()*response.data.length)];
+          $('.randResult').prepend("<div class='col-md-12'><img class='crop' src="+randomResponse.images.downsized.url+"></div>")
+
+        // $('.gif1').append("<img src="+response.data.images.fixed_height_still.url+">")
+      };
+      });
+    });

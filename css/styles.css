@@ -60,11 +60,19 @@ input {
   background-color:#74839b;
 }
 
+.gifrand {
+  background-color:#74839b;
+}
+
 .gif {
   background-color:#74839b;
 }
 
 .gif1 .col-md-4 {
+  background-color:#4c525b;
+}
+
+.randResult .col-md-12 {
   background-color:#4c525b;
 }
 
