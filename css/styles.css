@@ -11,3 +11,75 @@
 .score {
   display:none;
 }
+
+.crop {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 300px;
+    height: 300px;
+    margin: -75px 0 0 -100px;
+}
+
+
+
+img {
+  border:2px solid black;
+}
+
+.questionnaire {
+  margin-top:100px;
+}
+
+input {
+  margin-left:5px;
+  border:1px solid black;
+}
+
+.col-md-12 {
+  padding:0px;
+}
+
+.container {
+  padding:0px;
+}
+
+.row {
+  margin-left:0px;
+}
+
+.weather{
+  background-color:#d8d4c5;
+  margin-right:0px;
+}
+
+.row .gif {
+  background-color:#74839b;
+}
+
+.gif {
+  background-color:#74839b;
+}
+
+.gif1 .col-md-4 {
+  background-color:#4c525b;
+}
+
+.weather {
+  margin-top:2em;
+}
+
+.weatherresults {
+  background-color:#a3a094;
+}
+
+.list {
+  background-color:#d8d4c5;
+}
+
+h3 {
+  margin-top:0px;
+}

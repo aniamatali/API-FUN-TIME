@@ -1,89 +1,112 @@
 <html>
-  <head>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+<head>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="build/css/vendor.css" type="text/css"> -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <!-- <script src="build/js/vendor.min.js"></script> -->
   <script type="text/javascript" src="build/js/app.js"></script>
-    <title>ANSWER THE QUESTION</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
+  <title>API Practice</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="weather">
+          <h3>Weather</h3>
+          <label for="location">Enter a city:</label>
+          <input id="location" type="text">
+          <br>
+          <button class="btn-success" id="weatherLocation">Submit</button>
+          <div class="weatherresults">
+          <div class="errors"></div>
+          <div class="showHumidity"></div>
+          <div class="showTemp"></div>
+          <div class="showSpeed"></div>
+          <div class="showClouds"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="gif">
+          <h3>GIF</h3>
+          <label for="gifSearch">Enter your search:</label>
+          <input id="gifSearch" type="text">
+          <br>
+          <button class="btn-success" id="getGif">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="gif1">
+
+      </div>
+    </div>
+
+    <div class="row list">
+      <div class="col-md-12">
+        <h3>List of Cities</h3>
+        <button class="btn-success" id="majorCities">Submit</button>
+        <ul class="city1"></ul>
+      </div>
+    </div>
+
+    <div class="row questionnaire">
       <div class="col-md-12">
         <div class="question1">
           <p>Jasmine is cool.</p>
-            <form class="question1" action="index.html" method="post">
-              <div class="buttons">
-                <button class = "correct" type="button" class="btn">True</button>
-                <button class = "wrong" type="button" class="btn">False</button>
-              </div>
-            </form>
+          <form class="question1" action="index.html" method="post">
+            <div class="buttons">
+              <button class = "correct" type="button" class="btn">True</button>
+              <button class = "wrong" type="button" class="btn">False</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-  <div class="col-md-12">
-    <div class="question2">
-      <p>Testing is important.</p>
-        <form class="question2" action="index.html" method="post">
-          <div class="buttons">
-            <button class = "correct" type="button" class="btn">True</button>
-            <button class = "wrong" type="button" class="btn">False</button>
-          </div>
-        </form>
-  </div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-  <div class="question3">
-    <p>C# is for nerds.</p>
-      <form class="question3" action="index.html" method="post">
-        <div class="buttons">
-          <button class = "correct" type="button" class="btn">True</button>
-          <button class = "wrong" type="button" class="btn">False</button>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="question2">
+          <p>Testing is important.</p>
+          <form class="question2" action="index.html" method="post">
+            <div class="buttons">
+              <button class = "correct" type="button" class="btn">True</button>
+              <button class = "wrong" type="button" class="btn">False</button>
+            </div>
+          </form>
         </div>
-      </form>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-  <div class="score">
-    <p>Your score is : <span id="yourscore"></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="question3">
+          <p>C# is for nerds.</p>
+          <form class="question3" action="index.html" method="post">
+            <div class="buttons">
+              <button class = "correct" type="button" class="btn">True</button>
+              <button class = "wrong" type="button" class="btn">False</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="score">
+          <p>Your score is : <span id="yourscore"></span></p>
 
-</div>
-</div>
-</div>
-
-<div class="container">
-      <h1>Get Weather Conditions From Anywhere!</h1>
-      <label for="location">Enter a location:</label>
-      <input id="location" type="text">
-      <button class="btn-success" id="weatherLocation">Get Current Humidity!</button>
-      <div class="errors"></div>
-      <div class="showHumidity"></div>
-      <div class="showTemp"></div>
-      <div class="showSpeed"></div>
-      <div class="showClouds"></div>
+        </div>
+      </div>
     </div>
 
-<div class="container">
-  <h1>Major Cities</h1>
-  <button class="btn-success" id="majorCities">Get Weather on Capitals</button>
-  <ul class="city1"></div>
-</div>
-
-<div class="container">
-  <h1>GIF</h1>
-  <label for="gifSearch">Enter your search:</label>
-  <input id="gifSearch" type="text">
-  <button class="btn-success" id="getGif">Get Gifs</button>
-  <div class="gif1"></div>
-</div>
-
-  </body>
+  </div>
+</body>
 </html>

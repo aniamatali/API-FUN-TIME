@@ -107,7 +107,7 @@ $(document).ready(function() {
     $('#gifSearch').val("");
 
     let request = new XMLHttpRequest();
-    let url = `http://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${apiKey2}`;
+    let url = `http://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${apiKey2}&limit=200`;
 
     request.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
@@ -122,7 +122,7 @@ $(document).ready(function() {
     const getElements = function(response) {
       console.log(response.data);
       response.data.forEach(function(image) {
-        $('.gif1').append("<img src="+image.images.downsized.url+" height=200px>")
+        $('.gif1').prepend("<div class='col-md-4'><img class='crop' src="+image.images.downsized.url+"></div>")
       })
       // $('.gif1').append("<img src="+response.data.images.fixed_height_still.url+">")
     };
