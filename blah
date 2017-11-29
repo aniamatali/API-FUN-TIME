@@ -1,0 +1,5 @@
+// $(".intervaltest").click(function(){
+//   setInterval(function()){
+//     score += 1;
+//   }, 1000);
+// });

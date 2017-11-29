@@ -16,6 +16,13 @@ $(document).ready(function() {
 
   let score = 0;
 
+  $(".intervaltest").click(function(){
+    setInterval(function(){
+      score += 100;
+      $("#yourscore").text(score);
+    }, 1000);
+  });
+
   setTimeout(function(){
     $(".question1").hide();
     $(".question2").show();
@@ -43,7 +50,11 @@ $(document).ready(function() {
     score -= 1;
     $(".buttons").hide();
   });
+
+
 });
+
+
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
@@ -57,6 +68,7 @@ $(document).ready(function() {
       if (this.readyState === 4 && this.status === 200) {
         let response = JSON.parse(this.responseText);
         getElements(response);
+        console.log(response);
       }
     };
 
@@ -113,6 +125,7 @@ $(document).ready(function() {
       if (this.readyState === 4 && this.status === 200) {
         let response = JSON.parse(this.responseText);
         getElements(response);
+        console.log(response);
       }
     };
 
@@ -123,7 +136,6 @@ $(document).ready(function() {
       response.data.forEach(function(image) {
         $('.gif1').prepend("<div class='col-md-4'><img class='crop' src="+image.images.downsized.url+"></div>")
       })
-      // $('.gif1').append("<img src="+response.data.images.fixed_height_still.url+">")
     };
     });
   });
@@ -147,11 +159,8 @@ $(document).ready(function() {
       request.send();
 
       const getElements = function(response) {
-        response[Math.floor(Math.random()*response.length)];
         let randomResponse = response.data[Math.floor(Math.random()*response.data.length)];
           $('.randResult').prepend("<div class='col-md-12'><img class='crop' src="+randomResponse.images.downsized.url+"></div>")
-
-        // $('.gif1').append("<img src="+response.data.images.fixed_height_still.url+">")
       };
       });
     });
