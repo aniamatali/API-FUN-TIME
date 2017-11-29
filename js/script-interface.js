@@ -61,28 +61,33 @@ $(document).ready(function() {
     let city = $('#location').val();
     $('#location').val("");
 
-    let request = new XMLHttpRequest();
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
-        let response = JSON.parse(this.responseText);
-        getElements(response);
-        console.log(response);
-      }
-    };
-
-    request.open("GET", url, true);
-    request.send();
-
-    const getElements = function(response) {
+    $.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`).then(function(response) {
       $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
       $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
       $('.showSpeed').text(`The speed in miles is ${response.wind.speed} mph.`);
       $('.showClouds').text(`The cloud coverage is ${response.clouds.all} %`);
-    };
+    }).fail(function(error) {
+      $('.showErrors').text(`There was an error processing ${error.responseText}.  Please try again.`);
+    });
   });
 });
+      // request.onreadystatechange = function() {
+      //   if (this.readyState === 4 && this.status === 200) {
+      //     let response = JSON.parse(this.responseText);
+      //     getElements(response);
+      //     console.log(response);
+      //   }
+      // };
+
+    // let request = new XMLHttpRequest();
+    // let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    //
+    // request.open("GET", url, true);
+    // request.send();
+    // const getElements = function(response) {
+// });
+
+    // };
 
 $(document).ready(function(){
   const capitals3 = [];
