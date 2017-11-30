@@ -25,6 +25,7 @@ $(document).ready(function() {
         if (this.status === 200) {
           resolve(request.response);
           $('.showErrors').empty();
+          capitals2.split();
         } else {
           reject(Error(request.statusText));
           $('.showHumidity').empty();
