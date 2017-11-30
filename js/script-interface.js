@@ -4,16 +4,18 @@ var apiKey2 = require('./../.env').apiKey2;
 let capitals = ["seattle", "portland", "new york", "wichita", "austin", "baltimore", "augusta", "atlanta", "raleigh", "chicago", "sacramento", "tampa", "albany"];
 let capitals2 = [];
 
-capitals.forEach(function(string){
-  string = string.toUpperCase();
-  capitals2 = capitals2.sort();
-  capitals2.push(string);
-});
+// capitals.forEach(function(string){
+//   string = string.toUpperCase();
+//   capitals2 = capitals2.sort();
+//   capitals2.push(string);
+// });
 
 $(document).ready(function() {
   $('#submit').click(function() {
     let city = $('#address').val();
     $('#address').val("");
+
+    capitals2.push(city);
 
     let promise = new Promise(function(resolve,reject) {
       let request = new XMLHttpRequest();
