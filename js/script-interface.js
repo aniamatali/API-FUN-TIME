@@ -24,8 +24,13 @@ $(document).ready(function() {
       request.onload = function () {
         if (this.status === 200) {
           resolve(request.response);
+          $('.showErrors').empty();
         } else {
           reject(Error(request.statusText));
+          $('.showHumidity').empty();
+          $('.showTemp').empty();
+          $('.showSpeed').empty();
+          $('.showClouds').empty();
         }
       }
       request.open("GET", url, true);
@@ -37,7 +42,7 @@ $(document).ready(function() {
       response = JSON.parse(response);
       $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
       $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
-      $('.showSpeed').text(`The speed in miles is ${response.wind.speed} mph.`);
+      $('.showSpeed').text(`The wind speed in miles is ${response.wind.speed} mph.`);
       $('.showClouds').text(`The cloud coverage is ${response.clouds.all} %`);
     },function(error) {
       $('.showErrors').text(`There was an error processing ${error.message}`);
