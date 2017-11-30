@@ -6,79 +6,73 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="build/css/vendor.css" type="text/css"> -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
-
-  <!-- <script src="build/js/vendor.min.js"></script> -->
   <script type="text/javascript" src="build/js/app.js"></script>
   <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-     #map {
-       height: 400px;
-       width: 100%;
-      }
-      .map-control {
-        background-color: #fff;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-        font-family: 'Roboto','sans-serif';
-        margin: 10px;
-        /* Hide the control initially, to prevent it from appearing
-           before the map loads. */
-        display: none;
-      }
-      /* Display the control once it is inside the map. */
-      #map .map-control { display: block; }
+  <meta charset="utf-8">
+  <!-- GOOGLE MAPS STYLING -->
+  <style>
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+  .map-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+    font-family: 'Roboto','sans-serif';
+    margin: 10px;
+    /* Hide the control initially, to prevent it from appearing
+    before the map loads. */
+    display: none;
+  }
+  /* Display the control once it is inside the map. */
+  #map .map-control { display: block; }
 
-      .selector-control {
-        font-size: 14px;
-        line-height: 30px;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-   </style>
+  .selector-control {
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  </style>
+
   <title>API Practice</title>
 </head>
+
+<!-- BODY -->
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="weather">
           <h3>Weather</h3>
-          <label for="location">Enter a city:</label>
-          <input id="location" type="text">
-          <br>
-          <button class="btn-success" id="weatherLocation">Submit</button>
           <div class="weatherresults">
-          <div class="errors"></div>
-          <div class="showHumidity"></div>
-          <div class="showTemp"></div>
-          <div class="showSpeed"></div>
-          <div class="showClouds"></div>
-          <div class="showErrors"></div>
-        </div>
+            <div class="errors"></div>
+            <div class="showHumidity"></div>
+            <div class="showTemp"></div>
+            <div class="showSpeed"></div>
+            <div class="showClouds"></div>
+            <div class="showErrors"></div>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- RANDOM GIF -->
+
     <div class="row gifrand">
       <div class="col-md-12">
-      <div class="randResult">
+        <div class="randResult">
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="row">
 
       <div class="col-md-12">
         <div class="gif">
           <h3>GIF</h3>
-          <label for="gifSearch">Enter your search:</label>
-          <input id="gifSearch" type="text">
-          <br>
-          <button class="btn-success" id="getGif">Submit</button>
-          <button class="btn-success" id="getRand">Random</button>
         </div>
       </div>
     </div>
@@ -91,483 +85,114 @@
 
     <div class="row list">
       <div class="col-md-12">
-        <h3>List of Cities</h3>
-        <button class="btn-success" id="majorCities">Submit</button>
+        <button class="button" id="majorCities">CITY WEATHER LIST</button>
         <ul class="city1"></ul>
       </div>
     </div>
 
-    <div class="row questionnaire">
-      <div class="col-md-12">
-        <div class="question1">
-          <p>Jasmine is cool.</p>
-          <form class="question1" action="index.html" method="post">
-            <div class="buttons">
-              <button class = "correct" type="button" class="btn">True</button>
-              <button class = "wrong" type="button" class="btn">False</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="question2">
-          <p>Testing is important.</p>
-          <form class="question2" action="index.html" method="post">
-            <div class="buttons">
-              <button class = "correct" type="button" class="btn">True</button>
-              <button class = "wrong" type="button" class="btn">False</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="question3">
-          <p>C# is for nerds.</p>
-          <form class="question3" action="index.html" method="post">
-            <div class="buttons">
-              <button class = "correct" type="button" class="btn">True</button>
-              <button class = "wrong" type="button" class="btn">False</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="score">
-          <p>Your score is : <span id="yourscore"></span></p>
-          <div class="interval">
-            <button class = "intervaltest" type="button" class="btn">Interval</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div id="style-selector-control"  class="map-control">
-      <select id="style-selector" class="selector-control">
-        <option value="default">Default</option>
-        <option value="silver">Silver</option>
-        <option value="night">Night mode</option>
-        <option value="retro" selected="selected">Retro</option>
-        <option value="hiding">Hide features</option>
-        <option value="custom">Custom</option>
-      </select>
-    </div>
     <div id="map"></div>
     <script>
-      var map;
-      function initMap() {
-        // Create the map with no initial style specified.
-        // It therefore has default styling.
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.86, lng: 151.209},
-          zoom: 13,
-          mapTypeControl: false
-        });
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 9,
+        center: {lat: 47.60, lng: -122.33}
+      });
+      var geocoder = new google.maps.Geocoder();
 
-        // Add a style-selector control to the map.
-        var styleControl = document.getElementById('style-selector-control');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
+      document.getElementById('submit').addEventListener('click', function() {
+        geocodeAddress(geocoder, map);
+      });
+    }
 
-        // Set the map's style to the initial value of the selector.
-        var styleSelector = document.getElementById('style-selector');
-        map.setOptions({styles: styles[styleSelector.value]});
-
-        // Apply new JSON when the user selects a different style.
-        styleSelector.addEventListener('change', function() {
-          map.setOptions({styles: styles[styleSelector.value]});
-        });
-      }
-
-      var styles = {
-        default: null,
-        silver: [
-          {
-            elementType: 'geometry',
-            stylers: [{color: '#f5f5f5'}]
-          },
-          {
-            elementType: 'labels.icon',
-            stylers: [{visibility: 'off'}]
-          },
-          {
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#616161'}]
-          },
-          {
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#f5f5f5'}]
-          },
-          {
-            featureType: 'administrative.land_parcel',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#bdbdbd'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'geometry',
-            stylers: [{color: '#eeeeee'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#757575'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'geometry',
-            stylers: [{color: '#e5e5e5'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#9e9e9e'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'road.arterial',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#757575'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#dadada'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#616161'}]
-          },
-          {
-            featureType: 'road.local',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#9e9e9e'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'geometry',
-            stylers: [{color: '#e5e5e5'}]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'geometry',
-            stylers: [{color: '#eeeeee'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{color: '#c9c9c9'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#9e9e9e'}]
-          }
-        ],
-
-        night: [
-          {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-          {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-          {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-          {
-            featureType: 'administrative.locality',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#d59563'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#d59563'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'geometry',
-            stylers: [{color: '#263c3f'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#6b9a76'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{color: '#38414e'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#212a37'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#9ca5b3'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#746855'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#1f2835'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#f3d19c'}]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'geometry',
-            stylers: [{color: '#2f3948'}]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#d59563'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{color: '#17263c'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#515c6d'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#17263c'}]
-          }
-        ],
-
-        retro: [
-          {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
-          {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
-          {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
-          {
-            featureType: 'administrative',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#c9b2a6'}]
-          },
-          {
-            featureType: 'administrative.land_parcel',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#dcd2be'}]
-          },
-          {
-            featureType: 'administrative.land_parcel',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ae9e90'}]
-          },
-          {
-            featureType: 'landscape.natural',
-            elementType: 'geometry',
-            stylers: [{color: '#dfd2ae'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'geometry',
-            stylers: [{color: '#dfd2ae'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#93817c'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'geometry.fill',
-            stylers: [{color: '#a5b076'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#447530'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{color: '#f5f1e6'}]
-          },
-          {
-            featureType: 'road.arterial',
-            elementType: 'geometry',
-            stylers: [{color: '#fdfcf8'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#f8c967'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#e9bc62'}]
-          },
-          {
-            featureType: 'road.highway.controlled_access',
-            elementType: 'geometry',
-            stylers: [{color: '#e98d58'}]
-          },
-          {
-            featureType: 'road.highway.controlled_access',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#db8555'}]
-          },
-          {
-            featureType: 'road.local',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#806b63'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'geometry',
-            stylers: [{color: '#dfd2ae'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#8f7d77'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#ebe3cd'}]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'geometry',
-            stylers: [{color: '#dfd2ae'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry.fill',
-            stylers: [{color: '#b9d3c2'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#92998d'}]
-          }
-        ],
-
-        hiding: [
-          {
-            featureType: 'poi.business',
-            stylers: [{visibility: 'off'}]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'labels.icon',
-            stylers: [{visibility: 'off'}]
-          }
-        ],
-
-        custom: [
-          {elementType: 'geometry', stylers: [{color: '#491c63'}]},
-          {elementType: 'labels.text.stroke', stylers: [{color: '#000000'}]},
-          {elementType: 'labels.text.fill', stylers: [{color: '#fff'}]},
-          {
-            featureType: 'administrative.locality',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'geometry',
-            stylers: [{color: '#945d9b'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{color: '#1132a3'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#000000'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#95d7d8'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#000000'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'geometry',
-            stylers: [{color: '#b87cd6'}]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{color: '#3ea59b'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#ffffff'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#000000'}]
-          }
-        ]
-      };
-
-
+    function geocodeAddress(geocoder, resultsMap) {
+      var address = document.getElementById('address').value;
+      geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+          resultsMap.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjGSZ4UR09KbLShblkaU6PJAbMhpiOp2A&callback=initMap">
     </script>
 
-    <script async defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjGSZ4UR09KbLShblkaU6PJAbMhpiOp2A&callback=initMap">
-   </script>
   </div>
+
+  <!-- SEARCH STUFF -->
+  <div class = "searchbuttons">
+    <div id="floating-panel">
+      <label for="gifSearch">GIF SEARCH:</label>
+      <input id="gifSearch" type="text">
+      <button class="button" id="getGif">Submit</button>
+      <button class="button" id="getRand">Random</button>
+      <br>
+      <label for="location">Get Weather:</label>
+      <input id="address" type="textbox" value="Seattle">
+      <input id="submit" type="button" value="Geocode"><br>
+    </div>
+  </div>
+
+  <!-- QUESTIONNAIRE -->
+  <div class="row questionnaire">
+    <div class="col-md-12">
+      <div class="question1">
+        <p>Jasmine is cool.</p>
+        <form class="question1" action="index.html" method="post">
+          <div class="buttons">
+            <button class = "correct" type="button" class="btn">True</button>
+            <button class = "wrong" type="button" class="btn">False</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="question2">
+        <p>Testing is important.</p>
+        <form class="question2" action="index.html" method="post">
+          <div class="buttons">
+            <button class = "correct" type="button" class="btn">True</button>
+            <button class = "wrong" type="button" class="btn">False</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="question3">
+        <p>C# is for nerds.</p>
+        <form class="question3" action="index.html" method="post">
+          <div class="buttons">
+            <button class = "correct" type="button" class="btn">True</button>
+            <button class = "wrong" type="button" class="btn">False</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="score">
+        <p>Your score is : <span id="yourscore"></span></p>
+        <div class="interval">
+          <button class = "intervaltest" type="button" class="btn">Interval</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
